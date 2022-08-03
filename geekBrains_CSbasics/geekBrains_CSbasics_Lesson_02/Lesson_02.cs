@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace geekBrains_CSbasics_Lesson_02
 {
-    internal class Program
+    class Lesson_02
     {
-        static void Main(string[] args)
+        static void Main()
         {
         }
     }
