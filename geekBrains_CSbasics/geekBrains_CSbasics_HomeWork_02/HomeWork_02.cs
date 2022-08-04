@@ -29,7 +29,8 @@ namespace geekBrains_CSbasics_HomeWork_02
             double secondNumber = InputHelpers.UserInputConverter("Введите второе число: ");
             double thirdNumber = InputHelpers.UserInputConverter("Введите третье число: ");
 
-            Console.WriteLine($"Максимально число: {GetMax(firstNumber, secondNumber, thirdNumber)}");             
+            string resultGetMax = $"\nМаксимально число: {GetMax(firstNumber, secondNumber, thirdNumber)}";
+            Console.WriteLine(resultGetMax);             
         }
 
         private static double GetMax(double firstNumber, double secondNumber, double thirdNumber)
