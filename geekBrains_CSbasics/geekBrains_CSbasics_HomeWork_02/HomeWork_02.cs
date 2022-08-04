@@ -9,14 +9,13 @@ namespace geekBrains_CSbasics_HomeWork_02
 {
     class HomeWork_02
     {
-
-        // Malov Pavel
-        
         static void Main()
         {
+            OutputHelpers.PrintOutStartInformation(2, "Malov Pavel");
             Task01();
-            OutputHelpers.Delay();            
+            OutputHelpers.Delay();   
         }
+        #region Task 01
         /*
          * Task 01:
          * Написать метод, возвращающий минимальное из трёх чисел.
@@ -42,5 +41,6 @@ namespace geekBrains_CSbasics_HomeWork_02
                 max = thirdNumber;
             return max;
         }
+        #endregion
     }
 }
