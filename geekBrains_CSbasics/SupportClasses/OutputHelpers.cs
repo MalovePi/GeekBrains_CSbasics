@@ -49,7 +49,8 @@ namespace SupportClasses
                 {
                     Console.WriteLine($"[{i + 1}].....{task[i]}");
                 }
-                TextColor("[0]...Exit", ConsoleColor.DarkRed);
+
+                TextColor("[0]...Exit", ConsoleColor.Red);
             }
             else
             {

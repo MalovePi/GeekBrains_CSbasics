@@ -4,6 +4,11 @@ namespace SupportClasses
 {
     public class InputHelpers
     {
+        /// <summary>
+        /// Конвертор вводимого значения пользователем. Из string в double.
+        /// </summary>
+        /// <param name="text">Текст вывода в консоль</param>
+        /// <returns></returns>
         public static double UserInputConverter(string text)
         {
             while (true)

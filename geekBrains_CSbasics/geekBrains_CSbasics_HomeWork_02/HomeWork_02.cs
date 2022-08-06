@@ -55,6 +55,12 @@ namespace geekBrains_CSbasics_HomeWork_02
                         OutputHelpers.Delay();
                         isContinue = false;
                         break;
+                    case 6:
+                        Console.Clear();
+                        Task06();
+                        OutputHelpers.Delay();
+                        isContinue = false;
+                        break;
                     default:
                         OutputHelpers.TextColor("Некорректный номер меню!", ConsoleColor.DarkRed);
                         Console.ReadKey();
@@ -98,15 +104,15 @@ namespace geekBrains_CSbasics_HomeWork_02
         static void Task02()
         {
             OutputHelpers.TextColor("Программа подсчета количества цифр числа.\n", ConsoleColor.DarkYellow);
-            int number = Convert.ToInt32(InputHelpers.UserInputConverter("Введите число: "));
+            long number = Convert.ToInt64(InputHelpers.UserInputConverter("Введите число: "));
 
             string resultGetCounting = $"Количество цифр в числе: {GetCountingNumbers(number)}";
             Console.WriteLine(resultGetCounting);
         }
 
-        private static int GetCountingNumbers(int number)
+        private static long GetCountingNumbers(long number)
         {
-            int count = 0;
+            long count = 0;
 
             while (number != 0)
             {
@@ -127,12 +133,14 @@ namespace geekBrains_CSbasics_HomeWork_02
             Console.WriteLine("\nДля прекращения подсчета введи число 0.\n");
             int number;
             int sum = 0;
+            
             do
             {
                 number = Convert.ToInt32(InputHelpers.UserInputConverter("Введите число: "));
                 if (number > 0 && number % 2 != 0)
                     sum += number;
             } while (number != 0);
+
             Console.WriteLine($"Сумму всех нечетных положительных чисел: {sum}");
         }
         #endregion
@@ -150,6 +158,7 @@ namespace geekBrains_CSbasics_HomeWork_02
         static void Task04()
         {
             string login, password;
+
             do
             {
                 OutputHelpers.TextColor($"Введите пароль, для доступа к сообщению. У вас есть {_numberAttempts} попытки:\n", ConsoleColor.DarkYellow);
@@ -172,6 +181,7 @@ namespace geekBrains_CSbasics_HomeWork_02
                     Console.Clear();
                 }
             } while (_numberAttempts != 0);
+
             if (_numberAttempts == 0)
             {
                 Console.Clear();
@@ -207,7 +217,7 @@ namespace geekBrains_CSbasics_HomeWork_02
             double result = mass / Math.Pow(growth, 2);
 
             Console.WriteLine("\nИМТ: {0:F2} кг/м2", result);
-           
+
             if (result < _underweightIndex)
             {
                 OutputHelpers.TextColor("\nНедостаточный вес!", ConsoleColor.Red);
@@ -227,9 +237,41 @@ namespace geekBrains_CSbasics_HomeWork_02
         #region Task 06
         /*
          * Task 06:
-         * 
-         * 
+         * Написать программу подсчета количества «хороших» чисел в диапазоне от 1 до 1 000 000 000. 
+         * «Хорошим» называется число, которое делится на сумму своих цифр. 
+         * Реализовать подсчёт времени выполнения программы, используя структуру DateTime.
          */
+        private static int _rangeStart = 1;
+        private static int _rangeEnd = 1_000_000_000;
+        static void Task06()
+        {
+            OutputHelpers.TextColor("Программа подсчета количества «хороших» чисел в диапазоне от 1 до 1 000 000 000.\n", ConsoleColor.DarkYellow);
+            DateTime timer = DateTime.Now;
+            int countOfGoodNumbers = 0;
+            //bool check = false;
+
+            for (int i = _rangeStart; i <= _rangeEnd; i++)
+            {
+                if (NumberCheck(i))
+                    countOfGoodNumbers++;
+            }
+
+            Console.WriteLine("Количество «хороших» чисел в интервале от 1 до 1 000 000\n" +
+                               $"составило: {countOfGoodNumbers}");
+            Console.WriteLine("Время выполнения программы: {0:hh\\:mm\\:ss}", DateTime.Now - timer);
+        }
+
+        private static bool NumberCheck(int i)
+        {
+            int number = i;
+            int sumDigitsNum = 0;
+            while (number != 0)
+            {
+                sumDigitsNum += number % 10;
+                number /= 10;
+            }
+            return i % sumDigitsNum == 0;
+        }
         #endregion
     }
 }
