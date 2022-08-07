@@ -248,7 +248,6 @@ namespace geekBrains_CSbasics_HomeWork_02
             OutputHelpers.TextColor("Программа подсчета количества «хороших» чисел в диапазоне от 1 до 1 000 000 000.\n", ConsoleColor.DarkYellow);
             DateTime timer = DateTime.Now;
             int countOfGoodNumbers = 0;
-            //bool check = false;
 
             for (int i = _rangeStart; i <= _rangeEnd; i++)
             {
@@ -256,7 +255,7 @@ namespace geekBrains_CSbasics_HomeWork_02
                     countOfGoodNumbers++;
             }
 
-            Console.WriteLine("Количество «хороших» чисел в интервале от 1 до 1 000 000\n" +
+            Console.WriteLine("Количество «хороших» чисел в интервале от 1 до 1 000 000 000\n" +
                                $"составило: {countOfGoodNumbers}");
             Console.WriteLine("Время выполнения программы: {0:hh\\:mm\\:ss}", DateTime.Now - timer);
         }
