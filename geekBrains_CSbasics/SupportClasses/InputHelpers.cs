@@ -20,7 +20,10 @@ namespace SupportClasses
                 if (double.TryParse(str, out result))
                     return result;
                 else
+                {
                     Console.WriteLine("Неправильный фармат числа. Попробуй еще раз!");
+                    Console.WriteLine("\a");
+                }                    
             }
         }
     }
