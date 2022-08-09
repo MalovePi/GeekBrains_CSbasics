@@ -43,14 +43,14 @@ namespace SupportClasses
             if (count <= 10)
             {
                 var range = task.GetRange(0, count);
-                TextColor("Menu:", ConsoleColor.DarkYellow);
+                TextColor("Menu:");
 
                 for (int i = 0; i < range.Count; i++)
                 {
                     Console.WriteLine($"[{i + 1}].....{task[i]}");
                 }
 
-                TextColor("[0]...Exit", ConsoleColor.Red);
+                TextColor("[0].....Exit", ConsoleColor.Red);
             }
             else
             {
@@ -59,11 +59,20 @@ namespace SupportClasses
             }                
         }
 
-        public static void TextColor(string text, ConsoleColor consoleColor )
+        public static void TextColor(string text, ConsoleColor consoleColor = ConsoleColor.DarkYellow)
         {
             Console.ForegroundColor = consoleColor;
             Console.WriteLine(text);
             Console.ResetColor();
+        }
+
+        public static void ComplexMenu()
+        {
+            TextColor("Menu: Комплексные числа\n");
+            Console.WriteLine("[1].....Пункт задания А.");
+            Console.WriteLine("[2].....Пункт задания Б.");
+            Console.WriteLine("[3].....Пункт задания В.");
+            TextColor("[0].....Exit", ConsoleColor.Red);
         }
     }
 }

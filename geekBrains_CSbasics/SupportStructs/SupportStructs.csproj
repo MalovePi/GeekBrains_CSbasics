@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C1C00ACF-D754-45A7-BD2B-F5B1C2F9E941}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>geekBrains_CSbasics_HomeWork_03</RootNamespace>
-    <AssemblyName>geekBrains_CSbasics_HomeWork_03</AssemblyName>
+    <ProjectGuid>{2877EFC3-F3E2-4FEA-B793-0E59FB044A9A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SupportStructs</RootNamespace>
+    <AssemblyName>SupportStructs</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,21 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HomeWork_03.cs" />
+    <Compile Include="ComplexStruct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SupportClasses\SupportClasses.csproj">
-      <Project>{ae865aea-6b11-4a56-adca-54d390976cd2}</Project>
-      <Name>SupportClasses</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SupportStructs\SupportStructs.csproj">
-      <Project>{2877efc3-f3e2-4fea-b793-0e59fb044a9a}</Project>
-      <Name>SupportStructs</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

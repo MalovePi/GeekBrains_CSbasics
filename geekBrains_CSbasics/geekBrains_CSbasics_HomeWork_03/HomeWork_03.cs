@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using SupportClasses;
+using SupportStructs;
 
 namespace geekBrains_CSbasics_HomeWork_03
 {
@@ -52,11 +53,68 @@ namespace geekBrains_CSbasics_HomeWork_03
          * б) Дописать класс Complex, добавив методы вычитания и произведения чисел. Проверить работу класса.
          * в) Добавить диалог с использованием switch демонстрирующий работу класса.
          */
-        #endregion
         static void Task01()
         {
+            bool isContinue = true;
+            while (isContinue)
+            {
+                OutputHelpers.ComplexMenu();
+                int userInput = InputHelpers.UserInputConverterOutInt("\nВаша команда: ");
+                switch (userInput)
+                {
+                    case 0:
+                        Console.Clear();
+                        OutputHelpers.TextColor("Досвидание!", ConsoleColor.DarkGreen);
+                        Thread.Sleep(2000);
+                        isContinue = false;
+                        break;
+                    case 1:
+                        Console.Clear();
+                        Task01A();
+                        OutputHelpers.Delay();
+                        isContinue = false;
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Task01B();
+                        OutputHelpers.Delay();
+                        isContinue = false;
+                        break;
+                    case 3:
+                        Console.Clear();
 
+                        OutputHelpers.Delay();
+                        isContinue = false;
+                        break;
+                    default:
+                        OutputHelpers.TextColor("Некорректный номер меню!", ConsoleColor.DarkRed);                        
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                }
+            }
         }
+        static void Task01A()
+        {
+            OutputHelpers.TextColor("Пункт задания А. Дописать структуру Complex, добавив метод вычитания комплексных чисел.\n");
+            ComplexStruct z1 = new ComplexStruct(1, 2);
+            ComplexStruct z2 = new ComplexStruct(3, 4);
+            Console.WriteLine($"Комплексные числа: {z1} и {z2}.");
+            Console.WriteLine($"Сложение комплексных чисел: {z1 + z2}");
+            Console.WriteLine($"Вычитание комплексных чисел: {z1 - z2}");            
+        }
+
+        static void Task01B()
+        {
+            OutputHelpers.TextColor("Пункт задания Б. Дописать класс Complex, добавив методы вычитания и произведения чисел.\n");
+            ComplexClass z1 = new ComplexClass(1, 2);
+            ComplexClass z2 = new ComplexClass(3, 4);
+            Console.WriteLine($"Комплексные числа: {z1} и {z2}.");
+            Console.WriteLine($"Сложение комплексных чисел: {z1 + z2}");
+            Console.WriteLine($"Вычитание комплексных чисел: {z1 - z2}");
+            Console.WriteLine($"Произведение комплексных чисел: {z1 * z2}");
+        }
+        #endregion
         #region Task 02
         /*
          * Task 02:
@@ -66,14 +124,14 @@ namespace geekBrains_CSbasics_HomeWork_03
          */
         static void Task02()
         {
-            OutputHelpers.TextColor("Программа подсчета суммы введеных нечетных положительных чисел.", ConsoleColor.DarkYellow);
+            OutputHelpers.TextColor("Программа подсчета суммы введеных нечетных положительных чисел.");
             Console.WriteLine("\nДля прекращения подсчета введи число 0.\n");
             int number;
             int sum = 0;
 
             do
             {
-                number = Convert.ToInt32(InputHelpers.UserInputConverter("Введите число: "));
+                number = InputHelpers.UserInputConverterOutInt();
                 if (number > 0 && number % 2 != 0)
                     sum += number;
             } while (number != 0);
