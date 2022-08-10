@@ -55,6 +55,8 @@ namespace geekBrains_CSbasics_HomeWork_03
          */
         static void Task01()
         {
+            OutputHelpers.PrintOutStartInformation(3, "Malov Pavel");
+
             bool isContinue = true;
             while (isContinue)
             {
@@ -82,7 +84,7 @@ namespace geekBrains_CSbasics_HomeWork_03
                         break;
                     case 3:
                         Console.Clear();
-
+                        Task01C();
                         OutputHelpers.Delay();
                         isContinue = false;
                         break;
@@ -94,6 +96,7 @@ namespace geekBrains_CSbasics_HomeWork_03
                 }
             }
         }
+
         static void Task01A()
         {
             OutputHelpers.TextColor("Пункт задания А. Дописать структуру Complex, добавив метод вычитания комплексных чисел.\n");
@@ -113,6 +116,11 @@ namespace geekBrains_CSbasics_HomeWork_03
             Console.WriteLine($"Сложение комплексных чисел: {z1 + z2}");
             Console.WriteLine($"Вычитание комплексных чисел: {z1 - z2}");
             Console.WriteLine($"Произведение комплексных чисел: {z1 * z2}");
+        }
+
+        static void Task01C()
+        {
+            ComplexСalculator.UserInterface();
         }
         #endregion
         #region Task 02

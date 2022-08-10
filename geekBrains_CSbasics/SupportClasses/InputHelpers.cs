@@ -21,8 +21,24 @@ namespace SupportClasses
                     return result;
                 else
                 {
-                    Console.WriteLine("Неправильный фармат числа. Попробуй еще раз!");
-                    Console.WriteLine("\a");
+                    OutputHelpers.TextColor("Ошибка! Неправильный фармат числа. Попробуй еще раз!", ConsoleColor.DarkRed);
+                    Console.Write("\a");
+                }
+            }
+        }
+        public static double UserInputConverter(out double number, string text)
+        {
+            while (true)
+            {
+                Console.Write(text);
+                string str = Console.ReadLine();
+
+                if (double.TryParse(str, out number))
+                    return number;
+                else
+                {
+                    OutputHelpers.TextColor("Ошибка! Неправильный фармат числа. Попробуй еще раз!", ConsoleColor.DarkRed);
+                    Console.Write("\a");
                 }
             }
         }
@@ -43,8 +59,8 @@ namespace SupportClasses
                     return result;
                 else
                 {
-                    Console.WriteLine("Ошибка! Неправильный фармат числа. Попробуйте еще раз.");
-                    Console.WriteLine("\a");
+                    OutputHelpers.TextColor("Ошибка! Неправильный фармат числа. Попробуй еще раз!", ConsoleColor.DarkRed);
+                    Console.Write("\a");
                 }
             }
         }
