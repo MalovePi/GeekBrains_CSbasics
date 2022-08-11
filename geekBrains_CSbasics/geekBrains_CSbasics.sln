@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "geekBrains_CSbasics_HomeWor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportClasses", "SupportClasses\SupportClasses.csproj", "{AE865AEA-6B11-4A56-ADCA-54D390976CD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "geekBrains_CSbasics_HomeWork_03", "geekBrains_CSbasics_HomeWork_03\geekBrains_CSbasics_HomeWork_03.csproj", "{C1C00ACF-D754-45A7-BD2B-F5B1C2F9E941}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportStructs", "SupportStructs\SupportStructs.csproj", "{2877EFC3-F3E2-4FEA-B793-0E59FB044A9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{AE865AEA-6B11-4A56-ADCA-54D390976CD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE865AEA-6B11-4A56-ADCA-54D390976CD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE865AEA-6B11-4A56-ADCA-54D390976CD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1C00ACF-D754-45A7-BD2B-F5B1C2F9E941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1C00ACF-D754-45A7-BD2B-F5B1C2F9E941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1C00ACF-D754-45A7-BD2B-F5B1C2F9E941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1C00ACF-D754-45A7-BD2B-F5B1C2F9E941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2877EFC3-F3E2-4FEA-B793-0E59FB044A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2877EFC3-F3E2-4FEA-B793-0E59FB044A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2877EFC3-F3E2-4FEA-B793-0E59FB044A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2877EFC3-F3E2-4FEA-B793-0E59FB044A9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
