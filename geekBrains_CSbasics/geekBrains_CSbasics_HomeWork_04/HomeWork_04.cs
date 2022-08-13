@@ -64,13 +64,21 @@ namespace geekBrains_CSbasics_HomeWork_04
             //array.ShowArrayInteger();
             //array = new ArraySample(3, 1, 1);
             //array.ShowArrayInteger();
-            int[] arr = { 22, 20, 13,20, 20, 14, 20, 14, 21, 22,22,22,22 };
-            ArraySample array = new ArraySample(arr);
-            array.ShowArrayInteger();
-            int s = array.Sum;
-            int mc = array.MaxCount;
-            Console.WriteLine(mc);
-            Console.WriteLine(s);            
+            //int[] arr = { 22, 20, 13,20, 20, 14, 20, 14, 21, 22,22,22,22 };
+            //ArraySample array = new ArraySample(arr);
+            //array.ShowArrayInteger();
+            //int s = array.Sum;
+            //int mc = array.MaxCount;
+            //Console.WriteLine(mc);
+            //Console.WriteLine(s);
+            
+            ArraySample a = new ArraySample(5);
+            a.ShowArrayInteger();
+            //ArraySample z = a.ReverseSignOfElements();
+            a.ReverseSignOfElements(ref a, out ArraySample z);
+            z.ShowArrayInteger();
+            a.ShowArrayInteger();
+
         }
         #endregion
 

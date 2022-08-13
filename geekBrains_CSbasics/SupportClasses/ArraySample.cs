@@ -49,17 +49,26 @@ namespace SupportClasses
             }
         }
 
+        public int Length
+        {
+            get => _arrayInteger.Length;
+        }
+
         public ArraySample(int[] array)
         {
             _arrayInteger = array;
         }
 
+        /// <summary>
+        /// Конструктор, создающий массив заполненный случайными числами от 10 до 100.
+        /// </summary>
+        /// <param name="sizeArray">Размер массива</param>
         public ArraySample(int sizeArray)
         {
             _arrayInteger = new int[sizeArray];
             for (int i = 0; i < sizeArray; i++)
             {
-                _arrayInteger[i] = random.Next(0, 100);
+                _arrayInteger[i] = random.Next(10, 100);
             }
         }
 
@@ -83,11 +92,34 @@ namespace SupportClasses
 
         public void ShowArrayInteger()
         {
-            for (int i = 0; i < _arrayInteger.Length; i++)
+            foreach (var array in _arrayInteger)
             {
-                Console.Write($"{_arrayInteger[i]}\t");                
+                Console.Write($"{array}\t");
             }
             Console.WriteLine();
         }
+
+        public ArraySample ReverseSignOfElements(ref ArraySample sourceArray, out ArraySample destinationArray)
+        {
+            int[] copyArray = new int[_arrayInteger.Length];
+            for (int i = 0; i < _arrayInteger.Length; i++)
+            {
+                //_arrayInteger[i] *= -1;
+                copyArray[i] = _arrayInteger[i] * -1;  
+            }
+            destinationArray = new ArraySample(copyArray);
+            return destinationArray;
+        }
+
+        //Variant_01
+        //public ArraySample ReverseSignOfElements()
+        //{
+        //    int[] destinationArray = new int[_arrayInteger.Length];
+        //    for (int i = 0; i < _arrayInteger.Length; i++)
+        //    {
+        //        destinationArray[i] = _arrayInteger[i] * -1;
+        //    }
+        //    return new ArraySample(destinationArray);
+        //}
     }
 }
