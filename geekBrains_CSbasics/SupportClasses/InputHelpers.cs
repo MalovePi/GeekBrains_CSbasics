@@ -72,9 +72,8 @@ namespace SupportClasses
             {
                 Console.Write(text);
                 string str = Console.ReadLine();
-                int result;
 
-                if (int.TryParse(str, out result))
+                if (int.TryParse(str, out int result))
                     return result;
                 else
                 {
