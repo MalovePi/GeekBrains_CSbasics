@@ -56,13 +56,28 @@ namespace SupportClasses
             {
                 Console.WriteLine("Ошибка! Неверное количество задач.");
                 Console.ReadKey();
-            }                
+            }
         }
 
         public static void TextColor(string text, ConsoleColor consoleColor = ConsoleColor.DarkYellow)
         {
             Console.ForegroundColor = consoleColor;
             Console.WriteLine(text);
+            Console.ResetColor();
+        }
+
+        public static void TextColor(string text, string varieble, ConsoleColor consoleColor = ConsoleColor.DarkYellow)
+        {
+            Console.ForegroundColor = consoleColor;
+            Console.Write(text);
+            Console.ResetColor();
+            Console.WriteLine(varieble);
+        }
+
+        public static void TextColorWrite(string text, ConsoleColor consoleColor = ConsoleColor.DarkYellow)
+        {
+            Console.ForegroundColor = consoleColor;
+            Console.Write(text);
             Console.ResetColor();
         }
 
@@ -73,6 +88,72 @@ namespace SupportClasses
             Console.WriteLine("[2].....Пункт задания Б.");
             Console.WriteLine("[3].....Пункт задания В.");
             TextColor("[0].....Exit", ConsoleColor.Red);
+        }
+
+        public static void ArraySampleMenu()
+        {
+            TextColor("Menu: Работа с прототипом массива\n");
+            Console.WriteLine("[1].....Cоздать массив, заданной размерности и заполненный случайными числами от 10 до 100.");
+            Console.WriteLine("[2].....Создать массив, заданной размерности и заполненный от начального значения, с заданным шагом.");
+            Console.WriteLine("[3].....Создать массив, загруженный из файла.");
+            TextColor("[0].....Exit", ConsoleColor.Red);
+        }
+
+        public static void ShowCaseArraySample(int sizeArray)
+        {
+            ArraySample array = new ArraySample(sizeArray);
+            OutputHelpers.TextColorWrite("Созданый массив: ");
+            array.ShowArrayInteger();
+            OutputHelpers.TextColor("Сумма элементов массива: ", $"{array.Sum}");
+            OutputHelpers.TextColor("Количество максимальных элементов: ", $"{array.MaxCount}");
+            OutputHelpers.TextColorWrite("Массив с измененными знаками у всех элементов: ");
+            array.ReverseSignOfElements(out ArraySample arrayNegative);
+            arrayNegative.ShowArrayInteger();
+            OutputHelpers.TextColorWrite("Демонстрация старого массива, без изменений:    ");
+            array.ShowArrayInteger();
+            OutputHelpers.TextColor("Умножение каждого элемента массива на определённое число: ");
+            InputHelpers.UserInputConverter(out int multoplier, "Пожалуйста ведите число: ");
+            array.ElementMultiplier(multoplier);
+            OutputHelpers.TextColorWrite("Результат: ");
+            array.ShowArrayInteger();
+        }
+
+        public static void ShowCaseArraySample(int sizeArray, int startValue, int step)
+        {
+            ArraySample array = new ArraySample(sizeArray, startValue, step);
+            OutputHelpers.TextColorWrite("Созданый массив: ");
+            array.ShowArrayInteger();
+            OutputHelpers.TextColor("Сумма элементов массива: ", $"{array.Sum}");
+            OutputHelpers.TextColor("Количество максимальных элементов: ", $"{array.MaxCount}");
+            OutputHelpers.TextColorWrite("Массив с измененными знаками у всех элементов: ");
+            array.ReverseSignOfElements(out ArraySample arrayNegative);
+            arrayNegative.ShowArrayInteger();
+            OutputHelpers.TextColorWrite("Демонстрация старого массива, без изменений:    ");
+            array.ShowArrayInteger();
+            OutputHelpers.TextColor("Умножение каждого элемента массива на определённое число: ");
+            InputHelpers.UserInputConverter(out int multoplier, "Пожалуйста ведите число: ");
+            array.ElementMultiplier(multoplier);
+            OutputHelpers.TextColorWrite("Результат: ");
+            array.ShowArrayInteger();
+        }
+
+        public static void ShowCaseArraySample(string fileName)
+        {
+            ArraySample array = new ArraySample(fileName);
+            OutputHelpers.TextColorWrite("Созданый массив: ");
+            array.ShowArrayInteger();
+            OutputHelpers.TextColor("Сумма элементов массива: ", $"{array.Sum}");
+            OutputHelpers.TextColor("Количество максимальных элементов: ", $"{array.MaxCount}");
+            OutputHelpers.TextColorWrite("Массив с измененными знаками у всех элементов: ");
+            array.ReverseSignOfElements(out ArraySample arrayNegative);
+            arrayNegative.ShowArrayInteger();
+            OutputHelpers.TextColorWrite("Демонстрация старого массива, без изменений:    ");
+            array.ShowArrayInteger();
+            OutputHelpers.TextColor("Умножение каждого элемента массива на определённое число: ");
+            InputHelpers.UserInputConverter(out int multoplier, "Пожалуйста ведите число: ");
+            array.ElementMultiplier(multoplier);
+            OutputHelpers.TextColorWrite("Результат: ");
+            array.ShowArrayInteger();
         }
     }
 }
