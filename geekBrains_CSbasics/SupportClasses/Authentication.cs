@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using SupportStructs;
-using SupportClasses;
 
 namespace SupportClasses
 {
@@ -15,15 +14,16 @@ namespace SupportClasses
         /// <param name="fileName">Имя файла</param>
         public Authentication(string fileName)
         {
-            StreamReader streamReader = new StreamReader(fileName);
-
-            _accounts = new Account[0];
-            while (!streamReader.EndOfStream)
+            using (StreamReader streamReader = new StreamReader(fileName))
             {
-                string data = streamReader.ReadLine();
-                string[] dataBase = data.Split(',');
-                Array.Resize(ref _accounts, _accounts.Length + 1);
-                _accounts[_accounts.Length - 1] = new Account(dataBase[0], dataBase[1]);
+                _accounts = new Account[0];
+                while (!streamReader.EndOfStream)
+                {
+                    string data = streamReader.ReadLine();
+                    string[] dataBase = data.Split(',');
+                    Array.Resize(ref _accounts, _accounts.Length + 1);
+                    _accounts[_accounts.Length - 1] = new Account(dataBase[0], dataBase[1]);
+                }
             }
         }
         
