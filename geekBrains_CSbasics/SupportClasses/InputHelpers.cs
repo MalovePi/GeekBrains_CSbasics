@@ -26,6 +26,7 @@ namespace SupportClasses
                 }
             }
         }
+
         public static double UserInputConverter(out double number, string text)
         {
             while (true)
@@ -42,6 +43,24 @@ namespace SupportClasses
                 }
             }
         }
+
+        public static int UserInputConverter(out int number, string text)
+        {
+            while (true)
+            {
+                Console.Write(text);
+                string str = Console.ReadLine();
+
+                if (int.TryParse(str, out number))
+                    return number;
+                else
+                {
+                    OutputHelpers.TextColor("Ошибка! Неправильный фармат числа. Попробуй еще раз!", ConsoleColor.DarkRed);
+                    Console.Write("\a");
+                }
+            }
+        }
+
         /// <summary>
         /// Конвертор вводимого значения пользователем. Из string в int.
         /// </summary>
@@ -53,9 +72,8 @@ namespace SupportClasses
             {
                 Console.Write(text);
                 string str = Console.ReadLine();
-                int result;
 
-                if (int.TryParse(str, out result))
+                if (int.TryParse(str, out int result))
                     return result;
                 else
                 {
