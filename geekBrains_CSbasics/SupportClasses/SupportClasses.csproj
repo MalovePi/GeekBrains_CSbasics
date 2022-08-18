@@ -46,6 +46,7 @@
     <Compile Include="CheckCorrect.cs" />
     <Compile Include="ComplexClass.cs" />
     <Compile Include="InputHelpers.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="OutputHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ComplexСalculator.cs" />

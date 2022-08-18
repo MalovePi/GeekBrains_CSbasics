@@ -155,5 +155,15 @@ namespace SupportClasses
             OutputHelpers.TextColorWrite("Результат: ");
             array.ShowArrayInteger();
         }
+
+        public static void MassegeMenu()
+        {
+            Console.WriteLine();
+            Console.WriteLine("[1].....Пункт задания А.");
+            Console.WriteLine("[2].....Пункт задания Б.");
+            Console.WriteLine("[3].....Пункт задания В.");
+            Console.WriteLine("[4].....Пункт задания Г.");
+            TextColor("[0].....Exit", ConsoleColor.Red);
+        }
     }
 }
