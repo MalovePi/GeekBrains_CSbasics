@@ -1,4 +1,6 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 //1. Создать программу, которая будет проверять корректность ввода логина.
 //Корректным логином будет строка от 2 до 10 символов,
@@ -15,5 +17,20 @@ namespace SupportClasses
             Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
             return regex.IsMatch(login);
         }
-    }
+
+        public static bool StringsAreAnagrams(string s, string t)
+        {
+            if (s.Length != t.Length)
+                return false;
+            else if (s.Equals(t))
+            {
+                Console.WriteLine("Одинаковые строки, не могут быть анаграммами.");
+                return false;
+            }     
+            
+            string sortedCopyS = string.Join("", s.OrderBy(c => c).ToArray());
+            string sortedCopyT = string.Join("", t.OrderBy(c => c).ToArray());
+            return sortedCopyS.Equals(sortedCopyT);
+        }
+    }    
 }

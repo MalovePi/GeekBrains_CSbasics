@@ -39,6 +39,12 @@ namespace geekBrains_CSbasics_HomeWork_05
                         OutputHelpers.Delay();
                         isContinue = false;
                         break;
+                    case 3:
+                        Console.Clear();
+                        Task03();
+                        OutputHelpers.Delay();
+                        isContinue = false;
+                        break;
                     default:
                         OutputHelpers.TextColor("Некорректный номер меню!", ConsoleColor.DarkRed);
                         Console.ReadKey();
@@ -60,10 +66,11 @@ namespace geekBrains_CSbasics_HomeWork_05
             int maxLoginLength = 10;
             Console.WriteLine("=======================");
             OutputHelpers.TextColor("Регистрация GeekBrains.");
-            Console.WriteLine("=======================\n");
+            Console.WriteLine("=======================");
 
             while (true)
             {
+                Console.WriteLine();
                 OutputHelpers.TextColorWrite("Пожалуйста, укажите ваше имя пользователя: ", ConsoleColor.DarkBlue);
                 string userInput = Console.ReadLine();
                 if (minLoginLength < userInput.Length && userInput.Length < maxLoginLength)
@@ -154,7 +161,7 @@ namespace geekBrains_CSbasics_HomeWork_05
             OutputHelpers.TextColor("Пункт задания А. Вывод только тех слов сообщения, которые содержат не больше количества заданых букв.");
 
             Console.WriteLine("\nСообщение: " + userInput + "\n");
-            InputHelpers.UserInputConverter(out int letterCount, "Ведите количество букв: ");
+            InputHelpers.UserInputConverter(out int letterCount, "Введите количество букв: ");
             Message.GetWordsOfSpecificLength(userInput, letterCount);
         }
 
@@ -163,7 +170,7 @@ namespace geekBrains_CSbasics_HomeWork_05
             OutputHelpers.TextColor("Пункт задания Б. Удалить из сообщения все слова, которые заканчиваются на заданный символ.");
 
             Console.WriteLine("\nСообщение: " + userInput + "\n");
-            InputHelpers.UserInputConverter(out char character, "Ведите символ: ");
+            InputHelpers.UserInputConverter(out char character, "Введите символ: ");
             Console.WriteLine(Message.RemovingWordsByCharacter(userInput, character));
         }
 
@@ -192,6 +199,25 @@ namespace geekBrains_CSbasics_HomeWork_05
          * 3. *Для двух строк написать метод, определяющий, является ли одна строка перестановкой другой.
          *     Например: badc являются перестановкой abcd.
          */
+        static void Task03()
+        {
+            do
+            {
+                OutputHelpers.TextColor("Програма проверики, являются ли введенные слова анаграммами.\n");
+
+                OutputHelpers.TextColorWrite("Введите первое слово: ");
+                string str1 = Console.ReadLine();
+                OutputHelpers.TextColorWrite("Введите второе слово: ");
+                string str2 = Console.ReadLine();
+                Console.WriteLine();
+
+                if (CheckCorrect.StringsAreAnagrams(str1, str2))
+                    OutputHelpers.TextColor("Cтроки являются анаграммами.", ConsoleColor.Green);
+                else
+                    OutputHelpers.TextColor("Cтроки не являются анаграммами.", ConsoleColor.Red);
+
+            } while (OutputHelpers.IsContinue("Повторить проверку"));            
+        }
         #endregion
 
         #region Task 04
