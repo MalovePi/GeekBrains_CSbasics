@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -15,10 +16,10 @@ namespace SupportClasses
             string pattern = @"\S{" + letterCount + @",}\b";
             Regex regex = new Regex(pattern);
             MatchCollection matches = regex.Matches(message);
-            
+
             if (matches.Count > 0)
             {
-                Console.Write($"Список слов содержащий не более {letterCount} букв: ");
+                Console.Write($"Список слов содержащий не менее {letterCount} букв: ");
                 foreach (Match match in matches)
                     Console.Write(match.Value + ", ");
             }
@@ -30,7 +31,7 @@ namespace SupportClasses
         {
             string pattern = $@"\w+{character}\b";
             string target = "";
-           
+
             Regex regex = new Regex(pattern);
             return regex.Replace(message, target);
         }
@@ -38,7 +39,7 @@ namespace SupportClasses
         public static string FindLongestWord(string massege)
         {
             string[] words = massege.Split(_separators, StringSplitOptions.RemoveEmptyEntries);
-            
+
             Array.Sort(words, (x, y) => x.Length.CompareTo(y.Length));
             return words.Last();
         }
@@ -47,10 +48,10 @@ namespace SupportClasses
         {
             if (string.IsNullOrEmpty(message))
                 return null;
-           
+
             StringBuilder stringBuilder = new StringBuilder();
-            
-            string[] words = message.Split(_separators, StringSplitOptions.RemoveEmptyEntries);            
+
+            string[] words = message.Split(_separators, StringSplitOptions.RemoveEmptyEntries);
             foreach (string word in words)
             {
                 if (word.Length >= minWordLenght)
@@ -58,6 +59,37 @@ namespace SupportClasses
             }
 
             return stringBuilder.ToString();
+        }
+
+        public static void FrequencyAnalysis(string[] words, string text)
+        {
+            Dictionary<string, int> wordRate = new Dictionary<string, int>();                      
+
+            string[] textAnalysis = text.Split(_separators, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (string word in words)
+            {
+                foreach (string wordInText in textAnalysis)
+                {
+                    if (wordInText == word)
+                    {
+                        if (wordRate.ContainsKey(word))
+                            wordRate[word]++;
+                        else
+                            wordRate.Add(word, 1);
+                    }
+                }
+            }
+
+            if (wordRate.Count == 0)
+                Console.WriteLine("Совподений не найдено.");
+            else
+            {
+                foreach (var word in wordRate)
+                {
+                    Console.WriteLine($"Предлог: {word.Key} - {word.Value}");
+                }
+            }
         }
     }
 }

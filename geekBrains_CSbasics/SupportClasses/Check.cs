@@ -2,14 +2,9 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-//1. Создать программу, которая будет проверять корректность ввода логина.
-//Корректным логином будет строка от 2 до 10 символов,
-//содержащая только буквы латинского алфавита или цифры,
-//при этом цифра не может быть первой.
-
 namespace SupportClasses
 {
-    public static class CheckCorrect
+    public static class Check
     {
         public static bool ValidationLogin(string login)
         {
@@ -20,6 +15,9 @@ namespace SupportClasses
 
         public static bool StringsAreAnagrams(string s, string t)
         {
+            s = s.ToUpper();
+            t = t.ToUpper();
+
             if (s.Length != t.Length)
                 return false;
             else if (s.Equals(t))

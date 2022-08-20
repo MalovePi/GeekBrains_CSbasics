@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Threading;
 using SupportClasses;
 
@@ -45,6 +44,12 @@ namespace geekBrains_CSbasics_HomeWork_05
                         OutputHelpers.Delay();
                         isContinue = false;
                         break;
+                    case 4:
+                        Console.Clear();
+                        Task04();
+                        OutputHelpers.Delay();
+                        isContinue = false;
+                        break;
                     default:
                         OutputHelpers.TextColor("Некорректный номер меню!", ConsoleColor.DarkRed);
                         Console.ReadKey();
@@ -62,8 +67,9 @@ namespace geekBrains_CSbasics_HomeWork_05
          */
         static void Task01()
         {
-            int minLoginLength = 2;
+            int minLoginLength = 1;
             int maxLoginLength = 10;
+
             Console.WriteLine("=======================");
             OutputHelpers.TextColor("Регистрация GeekBrains.");
             Console.WriteLine("=======================");
@@ -73,11 +79,13 @@ namespace geekBrains_CSbasics_HomeWork_05
                 Console.WriteLine();
                 OutputHelpers.TextColorWrite("Пожалуйста, укажите ваше имя пользователя: ", ConsoleColor.DarkBlue);
                 string userInput = Console.ReadLine();
+
                 if (minLoginLength < userInput.Length && userInput.Length < maxLoginLength)
                 {
-                    if (CheckCorrect.ValidationLogin(userInput))
+                    if (Check.ValidationLogin(userInput))
                     {
-                        OutputHelpers.TextColor("Имя пользователя корректно.", ConsoleColor.DarkGreen);
+                        Console.WriteLine("=================================================");
+                        OutputHelpers.TextColor($"Имя пользователя корректно. Добро пожаловать {userInput}", ConsoleColor.DarkGreen);
                         break;
                     }
                     else if (char.IsDigit(userInput[0]))
@@ -152,13 +160,19 @@ namespace geekBrains_CSbasics_HomeWork_05
                         OutputHelpers.Delay();
                         isContinue = false;
                         break;
+                    case 5:
+                        Console.Clear();
+                        Task02E(userInput);
+                        OutputHelpers.Delay();
+                        isContinue = false;
+                        break;
                 }
             }
         }
 
         static void Task02A(string userInput)
         {
-            OutputHelpers.TextColor("Пункт задания А. Вывод только тех слов сообщения, которые содержат не больше количества заданых букв.");
+            OutputHelpers.TextColor("Пункт задания А. Вывод только тех слов сообщения, которые содержат не менее количества заданых букв.");
 
             Console.WriteLine("\nСообщение: " + userInput + "\n");
             InputHelpers.UserInputConverter(out int letterCount, "Введите количество букв: ");
@@ -171,6 +185,7 @@ namespace geekBrains_CSbasics_HomeWork_05
 
             Console.WriteLine("\nСообщение: " + userInput + "\n");
             InputHelpers.UserInputConverter(out char character, "Введите символ: ");
+
             Console.WriteLine(Message.RemovingWordsByCharacter(userInput, character));
         }
 
@@ -190,6 +205,27 @@ namespace geekBrains_CSbasics_HomeWork_05
 
             Console.WriteLine("\nСообщение: " + userInput + "\n");
             Console.WriteLine(Message.FindLongestWords(userInput, minWordLenght));
+        }
+
+        static void Task02E(string userInput)
+        {
+            string[] strings = { "в", "без", "до", "из", "к", "на", "по", "о", "от", "при", "с", "у", "за", "над", "об", "под", "про", "для" };
+
+            OutputHelpers.TextColor("Пункт задания Д. Создать метод, который производит частотный анализ текста.");
+
+            OutputHelpers.TextColorWrite("\nТекст: ", ConsoleColor.Magenta);
+            Console.WriteLine(userInput);
+            Console.WriteLine();
+
+            Console.Write("Поиск предлогов: ");
+            for (int i = 0; i < strings.Length; i++)
+            {
+                Console.Write($"\"{strings[i]}\" ");
+            }
+
+            OutputHelpers.TextColor("\n\nAнализ текста: ", ConsoleColor.Magenta);
+            Message.FrequencyAnalysis(strings, userInput);
+
         }
         #endregion
 
@@ -211,12 +247,12 @@ namespace geekBrains_CSbasics_HomeWork_05
                 string str2 = Console.ReadLine();
                 Console.WriteLine();
 
-                if (CheckCorrect.StringsAreAnagrams(str1, str2))
+                if (Check.StringsAreAnagrams(str1, str2))
                     OutputHelpers.TextColor("Cтроки являются анаграммами.", ConsoleColor.Green);
                 else
                     OutputHelpers.TextColor("Cтроки не являются анаграммами.", ConsoleColor.Red);
 
-            } while (OutputHelpers.IsContinue("Повторить проверку"));            
+            } while (OutputHelpers.IsContinue("Повторить проверку"));
         }
         #endregion
 
@@ -238,6 +274,11 @@ namespace geekBrains_CSbasics_HomeWork_05
          *  Если среди остальных есть ученики, набравшие тот же средний балл,
          *  что и один из трёх худших, следует вывести и их фамилии и имена.
          */
+
+        static void Task04()
+        {
+            OutputHelpers.TextColor("Решение временно отсутствует!", ConsoleColor.Red);
+        }
         #endregion
     }
 }

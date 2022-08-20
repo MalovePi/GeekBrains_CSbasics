@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="ArraySample.cs" />
     <Compile Include="Authentication.cs" />
-    <Compile Include="CheckCorrect.cs" />
+    <Compile Include="Check.cs" />
     <Compile Include="ComplexClass.cs" />
     <Compile Include="InputHelpers.cs" />
     <Compile Include="Message.cs" />

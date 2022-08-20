@@ -163,6 +163,7 @@ namespace SupportClasses
             Console.WriteLine("[2].....Пункт задания Б.");
             Console.WriteLine("[3].....Пункт задания В.");
             Console.WriteLine("[4].....Пункт задания Г.");
+            Console.WriteLine("[5].....Пункт задания Д.");
             TextColor("[0].....Exit", ConsoleColor.Red);
         }
 
