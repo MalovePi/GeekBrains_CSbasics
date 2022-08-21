@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AE865AEA-6B11-4A56-ADCA-54D390976CD2}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SupportClasses</RootNamespace>
-    <AssemblyName>SupportClasses</AssemblyName>
+    <ProjectGuid>{CB6C5F84-7284-401F-84A4-F1EAEBAB0C27}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>geekBrains_CSbasics_HomeWork_05</RootNamespace>
+    <AssemblyName>geekBrains_CSbasics_HomeWork_05</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,20 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArraySample.cs" />
-    <Compile Include="Authentication.cs" />
-    <Compile Include="Check.cs" />
-    <Compile Include="ComplexClass.cs" />
-    <Compile Include="InputHelpers.cs" />
-    <Compile Include="Message.cs" />
-    <Compile Include="OutputHelpers.cs" />
+    <Compile Include="HomeWork_05.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ComplexСalculator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SupportStructs\SupportStructs.csproj">
-      <Project>{2877efc3-f3e2-4fea-b793-0e59fb044a9a}</Project>
-      <Name>SupportStructs</Name>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SupportClasses\SupportClasses.csproj">
+      <Project>{ae865aea-6b11-4a56-adca-54d390976cd2}</Project>
+      <Name>SupportClasses</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

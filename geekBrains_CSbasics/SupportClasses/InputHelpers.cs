@@ -61,6 +61,23 @@ namespace SupportClasses
             }
         }
 
+        public static int UserInputConverter(out char symbol, string text)
+        {
+            while (true)
+            {
+                Console.Write(text);
+                string str = Console.ReadLine();
+
+                if (char.TryParse(str, out symbol))
+                    return symbol;
+                else
+                {
+                    OutputHelpers.TextColor("Ошибка! Неправильный фармат. Попробуй еще раз!", ConsoleColor.DarkRed);
+                    Console.Write("\a");
+                }
+            }
+        }
+
         /// <summary>
         /// Конвертор вводимого значения пользователем. Из string в int.
         /// </summary>

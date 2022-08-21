@@ -155,5 +155,38 @@ namespace SupportClasses
             OutputHelpers.TextColorWrite("Результат: ");
             array.ShowArrayInteger();
         }
+
+        public static void MassegeMenu()
+        {
+            Console.WriteLine();
+            Console.WriteLine("[1].....Пункт задания А.");
+            Console.WriteLine("[2].....Пункт задания Б.");
+            Console.WriteLine("[3].....Пункт задания В.");
+            Console.WriteLine("[4].....Пункт задания Г.");
+            Console.WriteLine("[5].....Пункт задания Д.");
+            TextColor("[0].....Exit", ConsoleColor.Red);
+        }
+
+        public static bool IsContinue(string text = "Продолжить вычисления?")
+        {
+            while (true)
+            {
+                Console.WriteLine();
+                Console.Write($"{text}: Y/N > ");
+                string ask = Console.ReadLine();
+                if (ask.ToUpper() == "Y")
+                {
+                    Console.Clear();
+                    return true;
+                }
+                else if (ask.ToUpper() == "N")
+                {
+                    OutputHelpers.TextColor("Работа программы завершена.", ConsoleColor.Blue);
+                    return false;
+                }
+                else
+                    OutputHelpers.TextColor("Операция не распознана. Введите Y или N!", ConsoleColor.DarkRed);
+            }
+        }
     }
 }
