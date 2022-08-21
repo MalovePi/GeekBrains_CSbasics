@@ -276,9 +276,9 @@ namespace geekBrains_CSbasics_HomeWork_05
          *  Если среди остальных есть ученики, набравшие тот же средний балл,
          *  что и один из трёх худших, следует вывести и их фамилии и имена.
          */
-
         static void Task04(string fileName)
         {
+            OutputHelpers.TextColor("Рейтинг успеваемости - 2Б класса:\n");
             if (!File.Exists(fileName))
                 throw new FileNotFoundException();
 
@@ -301,7 +301,10 @@ namespace geekBrains_CSbasics_HomeWork_05
                     else
                         table[index].Append($"\n\t{name}");
                 }
-                Console.WriteLine("Худшие ученики:");
+                OutputHelpers.TextColor("Лучший ученики:\n", ConsoleColor.Magenta);
+                Console.WriteLine(table[14]);
+
+                OutputHelpers.TextColor("\nХудшие ученики:", ConsoleColor.Magenta);
                 int counter = 0;
                 for (int i = 0; i < table.Length; i++)
                 {
