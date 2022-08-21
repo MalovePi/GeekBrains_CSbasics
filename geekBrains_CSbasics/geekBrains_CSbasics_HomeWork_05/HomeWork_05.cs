@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 using System.Threading;
 using SupportClasses;
 
@@ -46,7 +48,7 @@ namespace geekBrains_CSbasics_HomeWork_05
                         break;
                     case 4:
                         Console.Clear();
-                        Task04();
+                        Task04(AppDomain.CurrentDomain.BaseDirectory + "Studentlist.txt");
                         OutputHelpers.Delay();
                         isContinue = false;
                         break;
@@ -275,9 +277,41 @@ namespace geekBrains_CSbasics_HomeWork_05
          *  что и один из трёх худших, следует вывести и их фамилии и имена.
          */
 
-        static void Task04()
+        static void Task04(string fileName)
         {
-            OutputHelpers.TextColor("Решение временно отсутствует!", ConsoleColor.Red);
+            if (!File.Exists(fileName))
+                throw new FileNotFoundException();
+
+            using (var reader = new StreamReader(fileName))
+            {
+                if (!int.TryParse(reader.ReadLine(), out int recordCount) || !(recordCount >= 10 && recordCount <= 100))
+                    throw new Exception("Первая строка (кол-во записей) должна являться числом.");
+
+                StringBuilder[] table = new StringBuilder[15];
+                for (int i = 0; i < recordCount; i++)
+                {
+                    var parts = reader.ReadLine()?.Split(new[] { ' ' });
+                    if (parts == null) continue;
+                    var name = $"{parts[0]} {parts[1]}";
+                    if (!int.TryParse(parts[2], out int a) || !int.TryParse(parts[3], out int b) || !int.TryParse(parts[4], out int c))
+                        throw new FormatException();
+                    int index = a + b + c - 1;
+                    if (table[index] == null)
+                        table[index] = new StringBuilder($"\t{name}");
+                    else
+                        table[index].Append($"\n\t{name}");
+                }
+                Console.WriteLine("Худшие ученики:");
+                int counter = 0;
+                for (int i = 0; i < table.Length; i++)
+                {
+                    if (counter > 2)
+                        break;
+                    if (table[i] == null) continue;
+                    Console.WriteLine($"\n{++counter} место - средний балл: {(float)(i + 1) / 3:F2}");
+                    Console.WriteLine(table[i]);
+                }
+            }
         }
         #endregion
     }
