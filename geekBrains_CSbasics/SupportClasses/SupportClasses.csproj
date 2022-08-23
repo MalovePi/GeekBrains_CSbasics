@@ -45,6 +45,7 @@
     <Compile Include="Authentication.cs" />
     <Compile Include="Check.cs" />
     <Compile Include="ComplexClass.cs" />
+    <Compile Include="FunctionTables.cs" />
     <Compile Include="InputHelpers.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="OutputHelpers.cs" />
