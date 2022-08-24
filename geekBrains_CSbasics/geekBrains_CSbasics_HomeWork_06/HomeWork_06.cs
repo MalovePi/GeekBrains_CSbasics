@@ -1,6 +1,5 @@
 ﻿using SupportClasses;
-using System;
-using System.Threading;
+using FunctionExtremum;
 
 namespace geekBrains_CSbasics_HomeWork_06
 {
@@ -15,7 +14,7 @@ namespace geekBrains_CSbasics_HomeWork_06
             {
                 OutputHelpers.TasksMenu(3);
 
-                int userInput = Convert.ToInt32(InputHelpers.UserInputConverter("\nВаша команда: "));
+                InputHelpers.UserInputConverter(out int userInput, "\nВаша команда: ");
 
                 switch (userInput)
                 {
@@ -29,6 +28,11 @@ namespace geekBrains_CSbasics_HomeWork_06
                         Console.Clear();
                         Task01();
                         OutputHelpers.Delay();
+                        isContinue = false;
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Task02(); 
                         isContinue = false;
                         break;
                     default:
@@ -60,7 +64,7 @@ namespace geekBrains_CSbasics_HomeWork_06
             Console.WriteLine("-----A----------X--------RESULT---");
             while (x <= end)
             {
-                Console.WriteLine($"| {a,8:F3} | {x,8:F3} | {function(a, x),8:F3} |");
+                Console.WriteLine($"| {a,8:F2} | {x,8:F2} | {function(a, x),8:F2} |");
                 x++;
             }
             Console.WriteLine("----------------------------------");
@@ -76,6 +80,10 @@ namespace geekBrains_CSbasics_HomeWork_06
          *    б) *Переделать функцию Load, чтобы она возвращала массив считанных значений. Пусть она возвращает минимум 
          *    через параметр (с использованием модификатора out).
          */
+        static void Task02()
+        {
+            ConsoleView.UI();
+        }
 
         #endregion
 
