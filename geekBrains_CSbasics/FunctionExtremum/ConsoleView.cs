@@ -8,7 +8,7 @@ namespace FunctionExtremum
         {
             Functions.Function[] functions = new Functions.Function[]
             {
-            Functions.Sine,Functions.Cubic , Functions.Square, Functions.SquareTrinomials
+            Functions.Sine, Functions.Cubic , Functions.Square, Functions.SquareTrinomials
             };
 
             OutputHelpers.TextColor("Экстремумы функции.\n");
@@ -23,14 +23,14 @@ namespace FunctionExtremum
             Console.WriteLine("[2].....f(x) = x^3");
             Console.WriteLine("[3].....f(x) = x^2");
             Console.WriteLine("[4].....f(x) = x^2 - 30x + 5");
-            OutputHelpers.TextColor("[v].....Загрузить последние значения функции из файла.", ConsoleColor.Yellow);
+            OutputHelpers.TextColor("[v].....Загрузить последние значения функции из файла.");
 
             while (UserCommand(out int index, 4))
             {
                 File.Create(@"..\..\data.bin", start, end, step, functions[index - 1]);
                 double min = File.Load(@"..\..\data.bin");
 
-                OutputHelpers.TextColorWrite("Значение глобального минимума: ", ConsoleColor.Green);
+                OutputHelpers.TextColorWrite($"Значение минимума на интервале ({start} , {end}): ", ConsoleColor.Green);
                 Console.WriteLine($"{min:F2}");
                 OutputHelpers.TextColorWrite("Результаты загружены в файл: data.bin\n", ConsoleColor.Green);
             }
@@ -40,6 +40,7 @@ namespace FunctionExtremum
             TableValues(start, end, step, File.LoadValues(@"..\..\data.bin", out double min2));
             OutputHelpers.TextColorWrite("Значение глобального минимума: ", ConsoleColor.Green);
             Console.WriteLine($"{min2:F2}");
+
             Console.ReadKey();
         }
 
@@ -60,7 +61,7 @@ namespace FunctionExtremum
                     }
                     OutputHelpers.TextColor($"Ошибка! Введите числовое значение от 1 до {max}", ConsoleColor.DarkRed);
                 }
-                else if (str?.ToLower() == "q")
+                else if (str?.ToLower() == "v")
                 {
                     number = default;
                     return false;
@@ -74,14 +75,14 @@ namespace FunctionExtremum
         {
             int index = 0;
 
-            Console.WriteLine(" -----x---------f(x)--- ");
+            Console.WriteLine(" -----x---- ----f(x)--- ");
             while (start <= end)
             {
                 Console.WriteLine($"| {start,8:F2} |  {values[index],8:F2} |");
                 start += step;
                 index++;
             }
-            Console.WriteLine(" ---------------------- ");
+            Console.WriteLine(" ---------- ----------- ");
         }
     }
 }

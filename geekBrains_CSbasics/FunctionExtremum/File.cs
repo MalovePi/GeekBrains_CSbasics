@@ -19,6 +19,7 @@
             using FileStream fs = new (fileName, FileMode.Open, FileAccess.Read);
             using BinaryReader reader = new (fs);
             double min = double.MaxValue;
+
             for(int i = 0; i < fs.Length / sizeof(double); i++)
             {
                 double d = reader.ReadDouble();
@@ -35,6 +36,7 @@
            
             double[] values = new double[fs.Length/ sizeof(double)];
             min = double.MaxValue;
+
             for( int i = 0; i < fs.Length / sizeof(double); i++)
             {
                 double d = reader.ReadDouble();
