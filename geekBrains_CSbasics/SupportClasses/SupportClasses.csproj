@@ -45,11 +45,13 @@
     <Compile Include="Authentication.cs" />
     <Compile Include="Check.cs" />
     <Compile Include="ComplexClass.cs" />
+    <Compile Include="FunctionTables.cs" />
     <Compile Include="InputHelpers.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="OutputHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ComplexСalculator.cs" />
+    <Compile Include="Student.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SupportStructs\SupportStructs.csproj">
