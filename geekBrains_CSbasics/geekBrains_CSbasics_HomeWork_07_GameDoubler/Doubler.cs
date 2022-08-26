@@ -7,7 +7,7 @@ namespace geekBrains_CSbasics_HomeWork_07_GameDoubler
     public class Doubler
     {
         private int _gameRangeIsFrom = 4;
-        private int _gameRangeIsTo = 100;
+        private int _gameRangeIsTo = 20;
 
         Random _random = new Random();
         private Stack<int> _stack = new Stack<int>();
