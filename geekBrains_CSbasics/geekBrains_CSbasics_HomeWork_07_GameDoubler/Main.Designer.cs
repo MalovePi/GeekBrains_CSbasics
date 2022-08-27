@@ -271,7 +271,9 @@
             this.Controls.Add(this.menuStrip1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(350, 400);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(350, 400);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
