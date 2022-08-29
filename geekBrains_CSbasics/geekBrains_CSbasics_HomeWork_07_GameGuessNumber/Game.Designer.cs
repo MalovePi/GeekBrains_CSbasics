@@ -83,7 +83,7 @@
             this.flowLayoutPanel2.Controls.Add(this.labelText1);
             this.flowLayoutPanel2.Controls.Add(this.textBoxPlayerInput);
             this.flowLayoutPanel2.Controls.Add(this.labelNumberAttempts);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 103);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(12, 181);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(310, 116);
             this.flowLayoutPanel2.TabIndex = 1;
@@ -153,7 +153,7 @@
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(197)))), ((int)(((byte)(85)))));
             this.groupBox1.Controls.Add(this.labelStatus);
             this.groupBox1.Font = new System.Drawing.Font("Fifaks 1.0 dev1", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(13, 237);
+            this.groupBox1.Location = new System.Drawing.Point(12, 106);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(309, 58);
             this.groupBox1.TabIndex = 4;
