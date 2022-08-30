@@ -28,29 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.новыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemSave = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.MenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButtonCheckTrue = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.textBoxQuestion = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.numericQuestion = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.CheckTrue = new System.Windows.Forms.CheckBox();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericQuestion)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -60,7 +67,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(475, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(474, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -68,45 +75,59 @@
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.новыйToolStripMenuItem,
-            this.открытьToolStripMenuItem,
-            this.сохранитьToolStripMenuItem,
+            this.MenuItemNew,
+            this.MenuItemOpen,
+            this.MenuItemSave,
             this.toolStripSeparator1,
-            this.выходToolStripMenuItem});
+            this.MenuItemExit});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(38, 22);
             this.toolStripDropDownButton1.Text = "File";
             // 
-            // новыйToolStripMenuItem
+            // MenuItemNew
             // 
-            this.новыйToolStripMenuItem.Name = "новыйToolStripMenuItem";
-            this.новыйToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.новыйToolStripMenuItem.Text = "New";
+            this.MenuItemNew.Name = "MenuItemNew";
+            this.MenuItemNew.Size = new System.Drawing.Size(180, 22);
+            this.MenuItemNew.Text = "New";
+            this.MenuItemNew.Click += new System.EventHandler(this.MenuItemNew_Click);
             // 
-            // открытьToolStripMenuItem
+            // MenuItemOpen
             // 
-            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.открытьToolStripMenuItem.Text = "Open";
+            this.MenuItemOpen.Name = "MenuItemOpen";
+            this.MenuItemOpen.Size = new System.Drawing.Size(180, 22);
+            this.MenuItemOpen.Text = "Open";
+            this.MenuItemOpen.Click += new System.EventHandler(this.MenuItemOpen_Click);
             // 
-            // сохранитьToolStripMenuItem
+            // MenuItemSave
             // 
-            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.сохранитьToolStripMenuItem.Text = "Save";
+            this.MenuItemSave.Name = "MenuItemSave";
+            this.MenuItemSave.Size = new System.Drawing.Size(180, 22);
+            this.MenuItemSave.Text = "Save";
+            this.MenuItemSave.Click += new System.EventHandler(this.MenuItemSave_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
-            // выходToolStripMenuItem
+            // MenuItemExit
             // 
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.выходToolStripMenuItem.Text = "Exit";
+            this.MenuItemExit.Name = "MenuItemExit";
+            this.MenuItemExit.Size = new System.Drawing.Size(180, 22);
+            this.MenuItemExit.Text = "Exit";
+            this.MenuItemExit.Click += new System.EventHandler(this.MenuItemExit_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(44, 22);
+            this.toolStripButton1.Text = "About";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // panel1
             // 
@@ -117,25 +138,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(584, 85);
             this.panel1.TabIndex = 1;
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(44, 22);
-            this.toolStripButton1.Text = "About";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(5, -9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(109, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -148,9 +150,21 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "QUIZ EDITOR";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(5, -9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(109, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(96)))), ((int)(((byte)(190)))));
+            this.panel3.Controls.Add(this.buttonDelete);
+            this.panel3.Controls.Add(this.buttonAdd);
             this.panel3.Location = new System.Drawing.Point(0, 345);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(475, 79);
@@ -158,7 +172,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBoxQuestion);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.groupBox1.Location = new System.Drawing.Point(5, 123);
@@ -168,42 +182,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Write you question here";
             // 
-            // radioButtonCheckTrue
+            // textBoxQuestion
             // 
-            this.radioButtonCheckTrue.AutoSize = true;
-            this.radioButtonCheckTrue.BackColor = System.Drawing.Color.YellowGreen;
-            this.radioButtonCheckTrue.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButtonCheckTrue.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButtonCheckTrue.Location = new System.Drawing.Point(6, 30);
-            this.radioButtonCheckTrue.Name = "radioButtonCheckTrue";
-            this.radioButtonCheckTrue.Size = new System.Drawing.Size(92, 41);
-            this.radioButtonCheckTrue.TabIndex = 4;
-            this.radioButtonCheckTrue.TabStop = true;
-            this.radioButtonCheckTrue.Text = "True";
-            this.radioButtonCheckTrue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButtonCheckTrue.UseMnemonic = false;
-            this.radioButtonCheckTrue.UseVisualStyleBackColor = false;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Tomato;
-            this.radioButton1.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.radioButton1.Location = new System.Drawing.Point(119, 30);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(103, 41);
-            this.radioButton1.TabIndex = 5;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "False";
-            this.radioButton1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radioButton1.UseMnemonic = false;
-            this.radioButton1.UseVisualStyleBackColor = false;
+            this.textBoxQuestion.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxQuestion.Location = new System.Drawing.Point(6, 25);
+            this.textBoxQuestion.Multiline = true;
+            this.textBoxQuestion.Name = "textBoxQuestion";
+            this.textBoxQuestion.Size = new System.Drawing.Size(454, 82);
+            this.textBoxQuestion.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButtonCheckTrue);
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.CheckTrue);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.numericQuestion);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 9.75F);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.groupBox2.Location = new System.Drawing.Point(5, 243);
@@ -213,26 +205,106 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Answer option";
             // 
-            // textBox1
+            // contextMenuStrip1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(6, 25);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(454, 82);
-            this.textBox1.TabIndex = 0;
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // numericQuestion
+            // 
+            this.numericQuestion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numericQuestion.Font = new System.Drawing.Font("Arial Narrow", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numericQuestion.Location = new System.Drawing.Point(380, 29);
+            this.numericQuestion.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericQuestion.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericQuestion.Name = "numericQuestion";
+            this.numericQuestion.Size = new System.Drawing.Size(71, 41);
+            this.numericQuestion.TabIndex = 1;
+            this.numericQuestion.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericQuestion.ValueChanged += new System.EventHandler(this.numericQuestion_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(249, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 37);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Question";
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonAdd.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.buttonAdd.FlatAppearance.BorderSize = 2;
+            this.buttonAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.buttonAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Font = new System.Drawing.Font("Arial Narrow", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAdd.Location = new System.Drawing.Point(334, 16);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(125, 48);
+            this.buttonAdd.TabIndex = 0;
+            this.buttonAdd.Text = "Add";
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.SeaShell;
+            this.buttonDelete.FlatAppearance.BorderSize = 2;
+            this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Font = new System.Drawing.Font("Arial Narrow", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDelete.Location = new System.Drawing.Point(193, 16);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(125, 48);
+            this.buttonDelete.TabIndex = 1;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // CheckTrue
+            // 
+            this.CheckTrue.AutoSize = true;
+            this.CheckTrue.BackColor = System.Drawing.Color.YellowGreen;
+            this.CheckTrue.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Bold);
+            this.CheckTrue.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CheckTrue.Location = new System.Drawing.Point(16, 30);
+            this.CheckTrue.Name = "CheckTrue";
+            this.CheckTrue.Size = new System.Drawing.Size(93, 41);
+            this.CheckTrue.TabIndex = 8;
+            this.CheckTrue.Text = "True";
+            this.CheckTrue.UseVisualStyleBackColor = false;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 421);
+            this.ClientSize = new System.Drawing.Size(474, 421);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(490, 460);
+            this.MinimumSize = new System.Drawing.Size(490, 460);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quiz editor";
@@ -241,10 +313,12 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericQuestion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,21 +328,25 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-        private System.Windows.Forms.ToolStripMenuItem новыйToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemNew;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemOpen;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemSave;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemExit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButtonCheckTrue;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxQuestion;
+        private System.Windows.Forms.NumericUpDown numericQuestion;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.CheckBox CheckTrue;
     }
 }
 
