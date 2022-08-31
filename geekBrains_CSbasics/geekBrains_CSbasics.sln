@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "geekBrains_CSbasics_HomeWor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "geekBrains_CSbasics_HomeWork_07_GameGuessNumber", "geekBrains_CSbasics_HomeWork_07_GameGuessNumber\geekBrains_CSbasics_HomeWork_07_GameGuessNumber.csproj", "{EB8872BF-B23F-40A6-B6E0-42318B803F0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "geekBrains_CSbasics_HomeWork_08_QuizEditor", "geekBrains_CSbasics_HomeWork_08_QuizEditor\geekBrains_CSbasics_HomeWork_08_QuizEditor.csproj", "{DDFCE733-2EEB-4B05-8016-CB2654CF4E6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{EB8872BF-B23F-40A6-B6E0-42318B803F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB8872BF-B23F-40A6-B6E0-42318B803F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB8872BF-B23F-40A6-B6E0-42318B803F0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDFCE733-2EEB-4B05-8016-CB2654CF4E6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDFCE733-2EEB-4B05-8016-CB2654CF4E6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDFCE733-2EEB-4B05-8016-CB2654CF4E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDFCE733-2EEB-4B05-8016-CB2654CF4E6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
